@@ -6,7 +6,18 @@ namespace SimpleFileSystem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var fileSystem = new FileSystem(32, 4);
+
+            fileSystem.Write("hello-world", "peace in the world! x merry xmas!!");
+            
+
+            var file = fileSystem.Drive["hello-world"];
+            var result = fileSystem.Read("hello-world");
+
+
+            Console.WriteLine($"Segments: {file.SegmentCount} - Content: {result}");
+            
+            Console.ReadKey();
         }
     }
 }
